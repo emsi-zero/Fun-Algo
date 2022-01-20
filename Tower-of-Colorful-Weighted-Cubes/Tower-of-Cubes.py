@@ -3,6 +3,17 @@
 
 class Cube:
     def __init__(self, W , front, back , left , right , top , bottom) -> None:
+        """initiates a Cube object with given parameters   
+
+        Args:
+            W ([int]): wight of the cube
+            front ([int]): color of front side
+            back ([int]): color of back side
+            left ([int]): color of left side
+            right ([int]): color of right side
+            top ([int]): color of top side
+            bottom ([int]): color of bottom side
+        """
         self.W = W
         self.sides = { 0: front , 1: back , 2: left , 3: right , 4: top , 5: bottom }
     
