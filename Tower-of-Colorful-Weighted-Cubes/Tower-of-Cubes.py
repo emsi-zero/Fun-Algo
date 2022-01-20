@@ -1,6 +1,9 @@
 
 
 
+from numpy import block
+
+
 class Cube:
     def __init__(self, W , front, back , left , right , top , bottom) -> None:
         """initiates a Cube object with given parameters   
@@ -52,6 +55,12 @@ class Cube:
     def __str__(self) -> str:
         return str(self.W)    
 
+
+def sortBlocksbyWeight(blocks):
+    return sorted(blocks , key=lambda b: b.getWeight())
+
+
+
 cubes = []
 
 numberOfBlocks = (int)(input())
@@ -60,3 +69,4 @@ for i in range(0,numberOfBlocks):
     inputStr = list(map(int , input().split()))
     cubes.append(Cube(inputStr[0], inputStr[1] ,inputStr[2] ,inputStr[3] ,inputStr[4] ,inputStr[5], inputStr[6]))
     
+cubes = sortBlocksbyWeight(cubes)
