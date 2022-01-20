@@ -38,4 +38,16 @@ class Cube:
         Returns:
             int : color of the opposite side
         """
-        return self.sides[(side+1) if (side%2==0) else side - 1]        
+        return self.sides[(side+1) if (side%2==0) else side - 1] 
+    
+    def getWeight(self):
+        """get weight of the cube
+
+        Returns:
+            int: weight of the cube
+        """
+        return self.W
+    
+    
+    def __str__(self) -> str:
+        return str(self.W)    
