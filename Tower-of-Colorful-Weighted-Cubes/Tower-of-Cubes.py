@@ -51,3 +51,12 @@ class Cube:
     
     def __str__(self) -> str:
         return str(self.W)    
+
+cubes = []
+
+numberOfBlocks = (int)(input())
+
+for i in range(0,numberOfBlocks):
+    inputStr = list(map(int , input().split()))
+    cubes.append(Cube(inputStr[0], inputStr[1] ,inputStr[2] ,inputStr[3] ,inputStr[4] ,inputStr[5], inputStr[6]))
+    
