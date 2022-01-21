@@ -69,7 +69,8 @@ for i in range(0,numberOfBlocks):
     
 cubes = sortBlocksbyWeight(cubes)
 
-#A dynamic programming table to record the highest possible tower with n blocks and space for recording the optimal choice for each step
+#A dynamic programming table to record the highest possible tower
+# with n blocks and space for recording the optimal choice for each step
 T = [[[0]*3]*6]*numberOfBlocks
 for i in range(0,numberOfBlocks):
     for j in range(0,6):
