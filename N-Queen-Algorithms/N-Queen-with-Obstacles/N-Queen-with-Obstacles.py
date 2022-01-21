@@ -42,3 +42,6 @@ def ScanDanger(n,board , row , col):
         i-= 1
         
     return False
+
+def PlaceQ(board, n, row):
+    pass
