@@ -71,10 +71,10 @@ cubes = sortBlocksbyWeight(cubes)
 
 #A dynamic programming table to record the highest possible tower
 # with n blocks and space for recording the optimal choice for each step
-T = [[[0]*3]*6]*numberOfBlocks
+T = [[[0 for i in range(0,6)]for j in range(0,numberOfBlocks)] for k in range(0,3)]
 for i in range(0,numberOfBlocks):
     for j in range(0,6):
-        T[i][j][0] = 1  
+        T[0][i][j] = 1  
 
 print(T)
 #Maximum tower: max height, best starting block, best starting side
@@ -90,22 +90,38 @@ for i in range(1,numberOfBlocks):
     # topside of cube i
     for ti in range(0,6):
         # check for cube above
-        for j in reversed(range(i-1, 0)):
+        for j in reversed(range(0, i)):
             # top side of cube j
             for tj in range(0,6):
                 # check if topside of i matches bottomside of j
-                if(cubes[i].getSideColor(ti) == cubes[j].getOppositeSide[tj]):
+                if(cubes[i].getSideColor(ti) == cubes[j].getOppositeSide(tj)):
                     # check if cube above has the optimal solution
-                    if(T[j][tj][0] + 1 > T[i][ti][0]):
-                        T[i][ti][0] = T[j][tj][0] + 1
-                        T[i][tj][1] = j # best block above cube i is cube j
-                        T[i][tj][2] = tj # best bottom side for cube j is tj
-                    
-        # put cube i as best starting block.
-        if(T[i][ti][0] > hmax[0]):
-            hmax[0] = T[i][ti][0]
-            hmax[1] = i # best starting block
-            hmax[2] = tj # best side for cube i
-    
+                    if(T[0][j][tj] + 1 > T[0][i][ti]):
+                        # print('\n\ni= ',i,'j= ',j,'\n\n')
+                        # for row in range(0,numberOfBlocks):
+                            # print(T[0][row])
+                        # for k in range(0,numberOfBlocks):
+                        #     print(T[0][:][k])  
+                        T[0][i][ti] = T[0][j][tj] + 1
+                        T[1][i][ti] = j # best block above cube i is cube j
+                        T[2][i][ti] = tj # best bottom side for cube j is tj
                         
+                        # print("T=" , T[0][i][ti])
+                        
+                        # put cube i as best starting block.
+                        if(T[0][i][ti] > hmax[0]):
+                            hmax[0] = T[0][i][ti]
+                            # print("hmax=" , hmax[0])
+                            hmax[1] = i # best starting block
+                            hmax[2] = ti # best side for cube i
+                        # input()
+
+print(hmax)
+
+for i in range(0,hmax[0]):
+    print("block=" , hmax[1]+1 , ", side= " , hmax[2])
+    next = [hmax[1] , hmax[2]]
+    hmax[1] = T[1][next[0]][next[1]]
+    hmax[2] = T[2][next[0]][next[1]]
+
                         
