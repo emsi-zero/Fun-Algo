@@ -92,4 +92,6 @@ for i in range(1,numberOfBlocks):
         for j in reversed(range(i-1, 0)):
             # top side of cube j
             for aj in range(0,6):
-                pass
+                # check if topside of i matches bottomside of j
+                if(cubes[i].getSideColor(ai) == cubes[j].getOppositeSide[aj]):
+                    pass
