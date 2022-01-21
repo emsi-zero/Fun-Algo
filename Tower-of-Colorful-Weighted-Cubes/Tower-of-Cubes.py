@@ -1,8 +1,6 @@
 
 
 
-from numpy import block
-
 
 class Cube:
     def __init__(self, W , front, back , left , right , top , bottom) -> None:
@@ -70,3 +68,13 @@ for i in range(0,numberOfBlocks):
     cubes.append(Cube(inputStr[0], inputStr[1] ,inputStr[2] ,inputStr[3] ,inputStr[4] ,inputStr[5], inputStr[6]))
     
 cubes = sortBlocksbyWeight(cubes)
+
+#A dynamic programming table to record the highest possible tower with n blocks and space for recording the optimal choice for each step
+T = [[[0]*3]*6]*numberOfBlocks
+for i in range(0,numberOfBlocks):
+    for j in range(0,6):
+        T[i][j][0] = 1  
+
+print(T)
+#Maximum tower: max height, best starting block, best starting side
+hmax = [0]*3
