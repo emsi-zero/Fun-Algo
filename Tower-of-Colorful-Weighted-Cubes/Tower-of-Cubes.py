@@ -78,3 +78,18 @@ for i in range(0,numberOfBlocks):
 print(T)
 #Maximum tower: max height, best starting block, best starting side
 hmax = [0]*3
+
+
+#fill the table for blocks and sides from the bottom block to the top for a tower of height i.
+# And recording the Optimal step(top block) for each pair of blocks.
+
+# check from cube 2 to n. 
+# cube 1 is the lightest so the best possible solution is already 1.
+for i in range(1,numberOfBlocks):
+    # topside of cube i
+    for ai in range(0,6):
+        # check for cube above
+        for j in reversed(range(i-1, 0)):
+            # top side of cube j
+            for aj in range(0,6):
+                pass
