@@ -55,6 +55,14 @@ class Cube:
 
 
 def sortBlocksbyWeight(blocks):
+    """sorts a set of blocks by their wieght
+
+    Args:
+        blocks (list): set of blocks
+
+    Returns:
+        list: list of sorted blocks
+    """
     return sorted(blocks , key=lambda b: b.getWeight())
 
 
