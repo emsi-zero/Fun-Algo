@@ -87,11 +87,24 @@ hmax = [0]*3
 # cube 1 is the lightest so the best possible solution is already 1.
 for i in range(1,numberOfBlocks):
     # topside of cube i
-    for ai in range(0,6):
+    for ti in range(0,6):
         # check for cube above
         for j in reversed(range(i-1, 0)):
             # top side of cube j
-            for aj in range(0,6):
+            for tj in range(0,6):
                 # check if topside of i matches bottomside of j
-                if(cubes[i].getSideColor(ai) == cubes[j].getOppositeSide[aj]):
-                    pass
+                if(cubes[i].getSideColor(ti) == cubes[j].getOppositeSide[tj]):
+                    # check if cube above has the optimal solution
+                    if(T[j][tj][0] + 1 > T[i][ti][0]):
+                        T[i][ti][0] = T[j][tj][0] + 1
+                        T[i][tj][1] = j # best block above cube i is cube j
+                        T[i][tj][2] = tj # best bottom side for cube j is tj
+                    
+        # put cube i as best starting block.
+        if(T[i][ti][0] > hmax[0]):
+            hmax[0] = T[i][ti][0]
+            hmax[1] = i # best starting block
+            hmax[2] = tj # best side for cube i
+    
+                        
+                        
