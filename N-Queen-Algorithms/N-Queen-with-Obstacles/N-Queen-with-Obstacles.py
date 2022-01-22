@@ -107,6 +107,7 @@ def placeQ(Q,board, n, row , S):
                     hasSolution = placeQ(Q-1, board , n , row +1 , 0) or hasSolution
                 else:                                                               # Condition: when the next slice has solution
                     hasSolution = hasSolutionAfterEnd or hasSolution
+            board[row][Qp] = " "
         elif Qp == End-1 and hasSolution == False :                    #Condition: when queen is cant be place until the end of row
             if End < n - 1:                                                     # Condition: When there is and obstacle ahead
                 hasSolution = placeQ(Q-1, board , n , row , End +1)
@@ -114,4 +115,6 @@ def placeQ(Q,board, n, row , S):
                 return placeQ(Q-1, board , n , row + 1 , 0)
             else:                                                               # Condition: When it's the last cell of the board
                 return False
+
         Qp+=1
+    return hasSolution
