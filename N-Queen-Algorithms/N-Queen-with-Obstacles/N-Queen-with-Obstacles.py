@@ -1,4 +1,5 @@
 
+solutions = []
 
 def ScanDanger(n,board , row , col):
     """Can the board for attacking queens
@@ -48,7 +49,7 @@ def placeQinRow(board, n , row):
     pass
 
 
-def placeQ(board, n, row , S):
+def placeQ(Q,board, n, row , S):
     """Checks for places possible to place a queen in a row and after
     and obstacle and continues by placing the queens recursively
 
@@ -63,13 +64,23 @@ def placeQ(board, n, row , S):
         this row and after his obstacle
     """
     
+    # Base case:
+    # If all queens are placed safely return true and save a solution
+    if Q == 0:
+        solution = []
+        for i in range(0,n):
+            for j in range(0,n):
+                if board[i][j] == "Q":
+                    solution.append((i,j)) #save solution
+        return True
+    
     
     
     # Recursive case:
     
     # Skip the immidiate obstacle- when two obstacles are next to each other    
     if board[row][S] == "W":
-        return placeQ(board , n , row, S+1)
+        return placeQ(Q-1,board , n , row, S+1)
     
     #finding the next obstacle
     End = n
@@ -89,18 +100,18 @@ def placeQ(board, n, row , S):
         if not(ScanDanger(n , board , row , Qp)):                     #Condition: when queen is placed safely
             board[row][Qp] = "Q"
             if(End == n):                                                       # Condition: when there is no obstacle ahead in the row
-                hasSolution = placeQ(board , n , row +1 , 0) or hasSolution
+                hasSolution = placeQ(Q-1, board , n , row +1 , 0) or hasSolution
             else:                                                               # Condition: when there is and obstacle ahead
-                hasSolutionAfterEnd = placeQ(board , n , row , End + 1)
+                hasSolutionAfterEnd = placeQ(Q-1, board , n , row , End + 1)
                 if not(hasSolutionAfterEnd):                                        # Condition: when the next slice of row has no solution
-                    hasSolution = placeQ(board , n , row +1 , 0) or hasSolution
+                    hasSolution = placeQ(Q-1, board , n , row +1 , 0) or hasSolution
                 else:                                                               # Condition: when the next slice has solution
                     hasSolution = hasSolutionAfterEnd or hasSolution
         elif Qp == End-1 and hasSolution == False :                    #Condition: when queen is cant be place until the end of row
             if End < n - 1:                                                     # Condition: When there is and obstacle ahead
-                hasSolution = placeQ(board , n , row , End +1)
+                hasSolution = placeQ(Q-1, board , n , row , End +1)
             elif row + 1 < n:                                                   # Condition: When there is another row ahead
-                return placeQ(board , n , row + 1 , 0)
+                return placeQ(Q-1, board , n , row + 1 , 0)
             else:                                                               # Condition: When it's the last cell of the board
                 return False
         Qp+=1
