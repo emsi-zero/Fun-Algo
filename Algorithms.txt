@@ -2,7 +2,7 @@
 
 # Matrix Chain Order
 
-# N Queen
+# N Queen (Done)
     -N Queen
     -N Queen with Obstacles
 
@@ -22,7 +22,7 @@
     -BucketSort
     -CountSort
 
-# Tower of Colorful Weighted Cubes
+# Tower of Colorful Weighted Cubes (Done)
 
 # Knapsack Problem
     - 0-1 Knapsack
