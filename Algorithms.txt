@@ -1,7 +1,30 @@
-Longest Common Subsequence
-Matrix Chain Order
-N Queen
-Palindromes
-Rod Cutting
-Sorting Algorithms
-Tower of Colorful Weighted Cubes
+# Longest Common Subsequence
+
+# Matrix Chain Order
+
+# N Queen
+    -N Queen
+    -N Queen with Obstacles
+
+# Palindromes
+    -Number of Palindromes
+    -Number of Longest Palindromes
+
+# Rod Cutting
+    -Simple Rod Cutting
+    -Rod Cutting with Cut Penalty
+# Sorting Algorithms
+    -InsertionSort
+    -BubbleSort
+    -HeapSort
+    -MergeSort
+    -QuickSort
+    -BucketSort
+    -CountSort
+
+# Tower of Colorful Weighted Cubes
+
+# Knapsack Problem
+    - 0-1 Knapsack
+    -Fractal Knapsack
+
