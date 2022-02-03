@@ -1,8 +1,8 @@
 
 
 solutions =[]           # All possible solutions of N Queen Problem
-n = 0                   # Dimesion of the board
-board = [[" " * n] *n]            # n*n Board
+n = None                   # Dimesion of the board
+board = None           # n*n Board
 
 
 def ScanDanger(row ,col):
@@ -48,8 +48,8 @@ def PlaceQ(row):
     # If all queens are placed safely return true and save the solution
     if row == n:
         solution = []
-        for i in board:
-            for j in board[i]:
+        for i in range(0,n):
+            for j in range(0,n):
                 if board[i][j] == "Q":
                     solution.append((i,j))
         solutions.append(solution)
