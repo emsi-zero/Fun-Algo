@@ -55,6 +55,15 @@ def PlaceQ(row):
         solutions.append(solution)
         return True
     
+    col = 0
+    
+    while col < n:
+        if not(ScanDanger(row , col)):
+            board[row][col] = "Q"
+            PlaceQ(row + 1)
+            board[row][col] = " "
+        
+        col+=1
 
 def printBoard():
     pass
