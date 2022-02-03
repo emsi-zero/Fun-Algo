@@ -43,6 +43,14 @@ def ScanDanger(row ,col):
     return False
 
 def PlaceQ(row):
+    """queen placement recursicve function that places the queens based on privously placed queens and finds a solution
+
+    Args:
+        row (int): row number of the queen
+
+    Returns:
+        boolean: whether there is a solution or not
+    """
     
     # base case
     # If all queens are placed safely return true and save the solution
