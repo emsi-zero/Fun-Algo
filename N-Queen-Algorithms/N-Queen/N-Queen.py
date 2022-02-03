@@ -66,11 +66,27 @@ def PlaceQ(row):
         col+=1
 
 def printBoard():
-    pass
+    for i in range(0,n):
+            print(board[i])
 
 def clearBoard():
-    pass
+    board = [[" " for i in range(0,n)] for j in range(0,n)]
+    
 
 def printSolutions():
-    pass
+    for s in solutions:
+        for q in s:
+            board[q[0]][q[1]] = "Q"
+        printBoard()
+        clearBoard()
 
+def printSolution(x):
+    for q in solutions[x]:
+        board[q[0]][q[1]] = "Q"
+    printBoard()
+    clearBoard()
+
+n = 8
+board = [[" " for i in range(0,n)] for j in range(0,n)]
+PlaceQ(0)
+print(len(solutions))
