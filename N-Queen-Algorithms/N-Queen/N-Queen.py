@@ -43,7 +43,18 @@ def ScanDanger(row ,col):
     return False
 
 def PlaceQ(row):
-    pass
+    
+    # base case
+    # If all queens are placed safely return true and save the solution
+    if row == n:
+        solution = []
+        for i in board:
+            for j in board[i]:
+                if board[i][j] == "Q":
+                    solution.append((i,j))
+        solutions.append(solution)
+        return True
+    
 
 def printBoard():
     pass
