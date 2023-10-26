@@ -17,7 +17,7 @@
     -InsertionSort
     -BubbleSort
     -HeapSort
-    -MergeSort
+    -MergeSort (DONE)
     -QuickSort
     -BucketSort
     -CountSort
